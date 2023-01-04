@@ -58,7 +58,6 @@ An app where users can message eachother via chat rooms.
 - data:
     - name : string
     - content : string
-    - timeStamp : Timestamp
 
 **Room Members Database**
 - rooms/{roomName}/members/{memberId}
