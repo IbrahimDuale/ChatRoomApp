@@ -54,41 +54,16 @@ An app where users can message eachother via chat rooms.
 ## Database Structure
 
 **Message Database**
-    rooms : {
-        room1 : {
-            messages : {
-                message1: {
-                    username: name,
-                    content: message,
-                    timestamp: time,
-                },
-                message2: {
-                    ..
-                },
-                ...
-            }
-        },
-        room2 : {
-            ...
-        },
-        ...
-    }
+- rooms/{roomName}/messages/{messageTimeStamp}
+- data:
+    - name : string
+    - content : string
+    - timeStamp : Timestamp
 
 **Room Members Database**
-    rooms : {
-        room3 : {
-            members : {
-                member1Id : displayName,
-                member2Id : displayName,
-                member3Id : displayName,
-                ....
-            }
-        },
-        room4 : {
-            ...
-        },
-        ...
-    }
+- rooms/{roomName}/members/{memberId}
+- data:
+    - name : string
 
 
 ## Tech Stack
@@ -120,41 +95,41 @@ An app where users can message eachother via chat rooms.
 **Props**
 
 create_room(roomName)
-    - called when the user attempts to create a room.
+- called when the user attempts to create a room.
 
 room_link: String
-    - non-empty when create_room() succeeded previously. 
+- non-empty when create_room() succeeded previously. 
 
 roomError: String
-    - non-empty when create_room() fails.
+- non-empty when create_room() fails.
 
 set_name(name)
-    - updates user's room name.
+- updates user's room name.
 
 name : String
-    - contains user's current room choice name.
+- contains user's current room choice name.
 
 -nameError:
-    - non-empty when set_name() fails.
+- non-empty when set_name() fails.
 
 
 ### Chat Room (Ui for chat room page)
 **Props**
 
 room_name : String
-    - room the user is connected to.
+- room the user is connected to.
 
 name : String
-    - name the user chose to be reffered to.
+- name the user chose to be reffered to.
 
 members : List of strings
-    - array of all members in the room including the user with format [name1, name2, name3].
+- array of all members in the room including the user with format [name1, name2, name3].
 
 messages : List of objects
-    - array of all messages in the room with format [{username, content, timestamp}, ...].
+- array of all messages in the room with format [{username, content, timestamp}, ...].
 
 leave_room():
-    - called when user wishes to leave the room.
+- called when user wishes to leave the room.
 
 ## Stateful Components
 
