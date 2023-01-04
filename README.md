@@ -109,7 +109,7 @@ set_name(name)
 name : String
 - contains user's current room choice name.
 
--nameError:
+nameError:
 - non-empty when set_name() fails.
 
 
@@ -153,7 +153,7 @@ create_room(roomName)
 
 ### Chat Room Controller
 
-connect_to_room(roomName, username)
+connect_to_room(roomName, username, auth)
 - Requires room_exists to return true and username to be non-empty.
 - Gets past messages, and members in a room.
 - Connects with websocket server to listen for NEW_USER, USER_LEFT, NEW_MESSAGE events and updates members and messages variables appropriately.
@@ -165,12 +165,13 @@ members : List of strings
 messages : List of objects
 - Array of messages in the room, kept up to date with the listener that listens for NEW_MESSAGE events.
 
-send_message(roomName, username, message)
-- Requires the user to be a member in the room with their chosen room name equal to the username.
+send_message(roomName, message, auth)
+- Requires the user to be a member in the room.
 - Send a new message to a room.
 
-leave_room()
-- Returns user to home page.
+leave_room(roomName, auth)
+- Requires the user to be a member in the room.
+- Removes user from the room and redirects them to the home page.
 
 
 
