@@ -1,6 +1,13 @@
 {
   "rules": {
-    ".read": false,
-    ".write": false
+    "rooms": {
+      "$roomName": {
+        "members": {
+          ".read": "auth !== null",
+          ".write": "auth !== null && auth.uid == $userId",
+          "$memberId": {}
+        }
+      }
+    }
   }
 }
