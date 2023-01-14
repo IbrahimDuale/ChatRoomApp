@@ -7,62 +7,188 @@ An app where users can message eachother via chat rooms.
 
 **Functional Requirements**
 - Create a new chat room and recieve the link to it to share with their friends.
-- Join an existing chat room by a room link with a non-empty display name.
-- Leave a chat room.
-- When a user joins a chat room they should see all past messages of a chat room.
-- Send a message to all users in a chat room.
+- Join an existing chat room using a room id with a non-empty display name.
+- When in a chat room, they should see all messages and members in the chat room.
+- Send a message to all users in the chat room.
 - Recieve new messages to the connected chat room.
-- Recieve a list of all members in the chat room.
-- Recieve an updated list when a user leaves or a new user enters the chat room.
+- Leave a chat room.
+- be notified when a user enters or leaves a chat room.
 
 **Non-functional Requirements**
-- Users should recieve new message events in real time.
+- Users should message and member events in real time.
 - Chat rooms should be highly available.
 
 ## Web pages
 
 **Home Page**
-- Users can choose between creating a room or joining a room.
-- If the user attempts to create a room:
-    - If the room is created a room link, linking to the newly created room, will be displayed to the user.
-    - If the room fails to be created an appropriate error message will be displayed.
-- If the user attempts to join a room:
-    - If the user can join the room, the user is navigated to the chat room page with their handle name and room link as parameters.
-    - If the user cannot join the room an appropriate error message will be displayed.
+- Users can choose between creating a room or joining a room with a non-empty display name.
+
 
 **Chat Room Page**
 - Displays all messages and members in the room. 
+- Allows users to send messages in the room.
 - Provides users an option to leave the room (the user will be redirected to the homepage).
-- If the user could not connect to the room the user is redirected to the home page.
 
 ## Services
 
 **Application Service**
 - Contains the UI.
+- Query database through here.
 
 **Key Generation Service**
 - Returns a unique id.
 - unique ids will be used by the websocket service to distinguish users connected to it.
 
 **Websocket Service**
-- connects users to a room.
+- keeps track of users in each room.
+- connects new users to a room and notifies other users in the room.
 - Recieves new messages from connected users. 
 - Adds new messages into the message database.
 - Sends the new messages in realtime to connected users in the new message's room.
-- When a user connects or disconnects with a room, the service notifies the other members.
+- notifies others in the room when a user leaves.
 
 ## Database Structure
 
-**Message Database**
-- rooms/{roomName}/messages/{messageTimeStamp}
-- data:
-    - name : string
-    - content : string
+**Message Database** contains all messages
+room_id : string
+- id of the room the message belongs to.
+member_id : string
+- id of the message's creator.
+content : string
+- message text
+time : Date
+- date message was created
 
-**Room Members Database**
-- rooms/{roomName}/members/{memberId}
-- data:
-    - name : string
+**Room Name Database** contains the name of each room
+room_id : string
+- id of the room the name belongs to.
+name : string
+- name of the room.
+
+**Room Members Database** contains members of each room
+room_id : string
+- id of the room the the members are connected to
+member_id : string
+- id of a member of the room.
+name : string
+- display name of the member with ${member_id}.
+
+## API Design
+
+### Home Page API
+
+room_name : string
+- name of the room the user wishes to create.
+
+update_room_name(new_name, flags)
+- Description:
+    - updates the room name the user wishes to create
+- Parameters:
+    - new_name : name of the room the user wishes to create.
+
+creating_room : boolean
+- True if a room is currently being created.
+
+create_room(room_name)
+- Description:
+    - called when the user attempts to create a room.
+- Parameters:
+    - room_name : Name of the room the user wishes to create.
+- Exceptions:
+    - EMPTY_ROOM_NAME : user attempts to create a room with an empty room name.
+    - ID_GENERATION_FAIL : could not create a room id.
+    - DATABASE_WRITE_FAIL : room not created because could not write to database.
+
+created_room_id : string
+- Description:
+    - the latest id of a room the user created with create_room(room_name).
+    - Variable is empty if the user has not created a room yet.
+
+room_id : string
+- Description:
+    - Id of the room the user wishes to join.
+
+update_room_id(new_id)
+- Description:
+    - updates the id of the room the user wishes to join.
+- Parameters:
+    - new_id : id of the room the user wishes to join.
+
+display_name : string
+- Description:
+    - name the user wishes to be reffered by in the room they wish to join.
+
+update_display_name(new_name)
+- Description:
+    - updates the name the user wishes to use when they join a room.
+- Parameters:
+    - new_name : name that the user wishes to use in the room they want to join.
+
+joining_room : boolean
+- true if the user is in the process of joining a room.
+
+join_room(room_id, display_name)
+- Description:
+    - attempts to join room with ${room_id} if successful navigates to ${room_id}'s page with ${display_name} as the user's name.
+- Exceptions:
+    - EMPTY_ROOM_ID : attempted to join a room with no room id.
+    - ROOM_ID_DNE : attempted to join a room that does not exist.
+    - EMPTY_DISPLAY_NAME : attempted to join a room with no display name.
+
+Exceptions (values can be accessed):
+- EMPTY_ROOM_NAME : user attempts to create a room with an empty room name.
+- ID_GENERATION_FAIL : could not create a room id.
+- DATABASE_WRITE_FAIL : room not created because could not write to database.
+- EMPTY_ROOM_ID : attempted to join a room with no room id.
+- ROOM_ID_DNE : attempted to join a room that does not exist.
+- EMPTY_DISPLAY_NAME : attempted to join a room with no display name.
+
+### Chat Room Page API
+
+leave()
+- navigates user back to the home page.
+
+room_name : string
+- name of the room
+
+display_name : string
+- name of the user
+
+user_id : string
+- unique id of the user to differentiate from other similar named users
+
+messages : array
+- array of all messages in chat room with format [{user_id, content}]
+
+members : array
+- array of all members in the room with format [{user_id, name}, ...]
+
+message : string
+- message the user wishes to send to other users in the chat room.
+
+update_message(new_message)
+- Description:
+    - updates the message the user wishes to send to the other users in the chat room.
+- Parameters:
+    - new_message : message the user wishes to send.
+
+send_message(message)
+- Description:
+    - sends ${message} to the other users in the chat room
+- Parameters:
+    - message : message the user wishes to send
+- Exceptions:
+    - EMPTY_MESSAGE : user attempted to send an empty message
+
+Exceptions (values can be accessed):
+
+
+### Global API
+room_exists(room_id) : boolean
+- Description:
+    - Checks if room with ${room_id} exists.
+- Returns:
+    - True if the room exists false otherwise.
 
 
 ## Tech Stack
@@ -77,101 +203,12 @@ An app where users can message eachother via chat rooms.
 - Contains members currently in each room.
 - Connect a listener to this database to listen for USER_LEFT and NEW_USER Events.
 - When the listener connects it will return a list of all the users in the room.
-- When a new user enters or a user leaves the room, the database will be updated sending the new list to user's listening (equivalent to a NEW_USER or USER_LEFT event).
 - An onDisconnect() routine will remove the user from the room when he or she leaves (equivalent to emitting a USER_LEFT event to the other users).
+- When a new user enters or a user leaves the room, the database will be updated sending the new list to user's listening (equivalent to a NEW_USER or USER_LEFT event).
 
 **Firebase firestore** (Also acts as a websocket service)
 - Contains all messages of each room.
 - Connect a listener to listen for NEW_MESSAGE events.
 - First call to the listener returns all the old messages in the room (equivalent to querying for past messages), subsequent calls will return a new message.
     - Can cache old messages to save on bandwidth when entering the room a subsequent time.
-
-# Additional
-
-## Stateless Components
-
-### Home (Ui for Home Page)
-**Props**
-
-create_room(roomName)
-- called when the user attempts to create a room.
-
-room_link: String
-- non-empty when create_room() succeeded previously. 
-
-roomError: String
-- non-empty when create_room() fails.
-
-set_name(name)
-- updates user's room name.
-
-name : String
-- contains user's current room choice name.
-
-nameError:
-- non-empty when set_name() fails.
-
-
-### Chat Room (Ui for chat room page)
-**Props**
-
-room_name : String
-- room the user is connected to.
-
-name : String
-- name the user chose to be reffered to.
-
-members : List of strings
-- array of all members in the room including the user with format [name1, name2, name3].
-
-messages : List of objects
-- array of all messages in the room with format [{username, content, timestamp}, ...].
-
-leave_room():
-- called when user wishes to leave the room.
-
-## Stateful Components
-
-### Global Context
-**state**
-
-room_exists(room)
-- Returns true if the room exists.
-- for the home page, it determines if a user can join a room.
-- for the chat room page, it determines if the room is valid.
-
-name : String
-- The name the user chooses in the home page to be displayed in the chat room page.
-
-### Home Controller
-
-create_room(roomName)
-- Returns an object containing the room link or an appropriate error message.
-- Format: {room, isSuccess, error}
-- if isSuccess is true the roomLink will contain the newly created room else the error variable will contain the error message.
-
-### Chat Room Controller
-
-connect_to_room(roomName, username, auth)
-- Requires room_exists to return true and username to be non-empty.
-- Gets past messages, and members in a room.
-- Connects with websocket server to listen for NEW_USER, USER_LEFT, NEW_MESSAGE events and updates members and messages variables appropriately.
-- Installs an onDisconnect listener with the websocket server to emit a USER_LEFT event when the user disconnects.
-
-members : List of strings
-- Array of members in the room, kept up to date by the listener that listens for NEW_USER and USER_LEFT events.
-
-messages : List of objects
-- Array of messages in the room, kept up to date with the listener that listens for NEW_MESSAGE events.
-
-send_message(roomName, message, auth)
-- Requires the user to be a member in the room.
-- Send a new message to a room.
-
-leave_room(roomName, auth)
-- Requires the user to be a member in the room.
-- Removes user from the room and redirects them to the home page.
-
-
-
 

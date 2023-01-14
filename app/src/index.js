@@ -9,9 +9,7 @@ import App from "./App";
 import ChatRoomController from "./components/ChatRoomController/ChatRoomController";
 import Error from "./components/Error/Error";
 import LoginController from "./components/LoginController/LoginController";
-import ChatRoomProvider from "./Context/ChatRoomProvider";
 import GlobalProvider from "./Context/GlobalProvider";
-import LoginProvider from "./Context/LoginProvider";
 import "./index.css";
 const router = createBrowserRouter([
   {
@@ -25,17 +23,13 @@ const router = createBrowserRouter([
     children: [{
       index: true,
       element: (
-        <LoginProvider>
-          <LoginController />
-        </LoginProvider>
+        <LoginController />
       )
     },
     {
       path: "/chatroom",
       element: (
-        <ChatRoomProvider>
-          <ChatRoomController />
-        </ChatRoomProvider>
+        <ChatRoomController />
       )
     }
     ]
