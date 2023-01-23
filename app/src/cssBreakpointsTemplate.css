@@ -1,16 +1,5 @@
 /* X-Small devices (portrait phones, less than 576px) */
-.login {
-    box-sizing: border-box;
-    height: 100%;
-    width: 100%;
-}
 
-.login__navigationContainer {
-    box-sizing: border-box;
-    height: 60px;
-}
-
-.login__formContainer {}
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {}

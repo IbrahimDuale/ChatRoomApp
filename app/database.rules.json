@@ -1,12 +1,9 @@
 {
   "rules": {
-    "rooms": {
-      "$roomName": {
-        "members": {
-          ".read": "auth !== null",
-          ".write": "auth !== null",
-          "$memberId": {}
-        }
+    "users": {
+      "$id": {
+        ".read": "auth !== null",
+        ".write": "auth !== null"
       }
     }
   }

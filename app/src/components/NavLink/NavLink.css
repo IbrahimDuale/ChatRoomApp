@@ -1,0 +1,25 @@
+.navLink {
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navLink--active {
+    color: #fff;
+    background-color: #198754;
+    border-color: #198754;
+}
+
+.navLink--default {
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.navLink__text {
+    text-align: center;
+    font-size: 1.2rem;
+}

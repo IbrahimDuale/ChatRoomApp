@@ -2,12 +2,10 @@ import { Outlet } from 'react-router-dom';
 import './App.css';
 function App() {
   return (
-    <div className="App">
-      <div className="App__innerContainer">
-        {/*Content of the page. Depends on the link*/}
-        <div className="App__contentContainer">
-          <Outlet />
-        </div>
+    <div className="app">
+      {/*Content of the page. Depends on the link*/}
+      <div className="app__contentContainer">
+        <Outlet />
       </div>
     </div>
   );
