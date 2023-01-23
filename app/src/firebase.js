@@ -1,6 +1,9 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, connectAuthEmulator, signInAnonymously } from "firebase/auth";
 import { getFirestore, connectFirestoreEmulator } from "firebase/firestore";
+import { getDatabase, connectDatabaseEmulator } from "firebase/database";
+import { getFunctions, connectFunctionsEmulator } from "firebase/functions";
+import { getApp } from "firebase/app";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -22,7 +25,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 signInAnonymously(auth)
-    .then(() => {
+    .then((auth) => {
         // Signed in..
     })
     .catch((error) => {
@@ -33,9 +36,19 @@ signInAnonymously(auth)
     });
 
 const db = getFirestore(app);
+const realtimeDb = getDatabase();
+const functions = getFunctions(getApp());
 
 connectFirestoreEmulator(db, 'localhost', 8080);
 connectAuthEmulator(auth, "http://localhost:9099");
+connectDatabaseEmulator(realtimeDb, "localhost", 9000);
+connectFunctionsEmulator(functions, "localhost", 5001);
+
+const admin_id = -1;
+const MESSAGES_COLLECTION = "messages";
+const ROOM_NAMES_COLLECTION = "room_names"
+const MEMBERS_COLLECTION = "room_members";
+
 
 // Initialize Firebase
-export { db, auth };
+export { db, auth, admin_id, MESSAGES_COLLECTION, ROOM_NAMES_COLLECTION, MEMBERS_COLLECTION, realtimeDb };

@@ -2,8 +2,8 @@ import { useContext, useState } from "react";
 import { GlobalContext } from "../../Context/GlobalProvider";
 import Login from "../Login/Login";
 import "./LoginController.css";
-import { collection, doc, writeBatch } from "firebase/firestore";
-import { db } from "../../firebase";
+import { collection, doc, serverTimestamp, writeBatch } from "firebase/firestore";
+import { db, admin_id, ROOM_NAMES_COLLECTION, MESSAGES_COLLECTION, MEMBERS_COLLECTION } from "../../firebase";
 import { useNavigate } from "react-router-dom";
 
 /**
@@ -74,7 +74,7 @@ const LoginController = () => {
         }
 
         //id for the new room
-        const new_id = (doc(collection(db, "room_names"))).id;
+        const new_id = (doc(collection(db, ROOM_NAMES_COLLECTION))).id;
         //if an id could not be generated throw an error
         if (!new_id) {
             set_ID_GENERATION_FAIL(true);
@@ -84,12 +84,14 @@ const LoginController = () => {
         const batch = writeBatch(db);
 
         //creating entry for database that maps room_id -> the room's name.
-        batch.set(doc(db, "room_names", new_id), { name: room_name });
+        batch.set(doc(db, ROOM_NAMES_COLLECTION, new_id), { name: room_name });
 
         //creating entry for database that maps room_id -> room's messages.
-        batch.set(doc(db, "messages", new_id), {});
+        batch.set(doc(db, MESSAGES_COLLECTION, new_id), {});
         //creating entry for database that maps room_id -> members in the room.
-        batch.set(doc(db, "room_members", new_id), {});
+        batch.set(doc(db, MEMBERS_COLLECTION, new_id), {});
+        //creating welcome message
+        batch.set(doc(db, MESSAGES_COLLECTION, new_id, MESSAGES_COLLECTION, new_id), { member_id: admin_id, content: `Welcome to ${room_name}!`, timeStamp: serverTimestamp() })
 
         await batch.commit().then(() => {
             //on successful write, the room's id is saved.
@@ -196,11 +198,9 @@ const LoginController = () => {
     return (
         <div className="loginController">
             {/*Ui for the login page*/}
-            <Login room_name={room_name} update_room_name={update_room_name} EMPTY_ROOM_NAME={EMPTY_ROOM_NAME} ID_GENERATION_FAIL={ID_GENERATION_FAIL} DATABASE_WRITE_FAIL={DATABASE_WRITE_FAIL} creating_room={creating_room} create_room={create_room} created_room_id={created_room_id}
+            <Login room_name={room_name} update_room_name={update_room_name} creating_room={creating_room} create_room={create_room} created_room_id={created_room_id}
                 room_id={room_id} update_room_id={update_room_id} display_name={display_name} update_display_name={update_display_name}
-                joining_room={joining_room} join_room={join_room} EMPTY_ROOM_ID={EMPTY_ROOM_ID} ROOM_ID_DNE={ROOM_ID_DNE} EMPTY_DISPLAY_NAME={EMPTY_DISPLAY_NAME}
-
-            />
+                joining_room={joining_room} join_room={join_room} error_flags={{ EMPTY_ROOM_NAME, ID_GENERATION_FAIL, DATABASE_WRITE_FAIL, EMPTY_ROOM_ID, ROOM_ID_DNE, EMPTY_DISPLAY_NAME }} />
         </div>
     )
 }

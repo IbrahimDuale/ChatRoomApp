@@ -50,28 +50,28 @@ An app where users can message eachother via chat rooms.
 ## Database Structure
 
 **Message Database** contains all messages
-room_id : string
-- id of the room the message belongs to.
-member_id : string
-- id of the message's creator.
-content : string
-- message text
-time : Date
-- date message was created
+- room_id : string
+    - id of the room the message belongs to.
+- member_id : string
+    - id of the message's creator.
+- content : string
+    - message content.
+- time : Date
+    - date message was created
 
 **Room Name Database** contains the name of each room
-room_id : string
-- id of the room the name belongs to.
-name : string
-- name of the room.
+- room_id : string
+    - id of the room the name belongs to.
+- name : string
+    - name of the room.
 
 **Room Members Database** contains members of each room
-room_id : string
-- id of the room the the members are connected to
-member_id : string
-- id of a member of the room.
-name : string
-- display name of the member with ${member_id}.
+- room_id : string
+    - id of the room the the members are connected to
+- member_id : string
+    - id of a member of the room.
+- name : string
+    - display name of the member with ${member_id}.
 
 ## API Design
 
@@ -80,7 +80,7 @@ name : string
 room_name : string
 - name of the room the user wishes to create.
 
-update_room_name(new_name, flags)
+update_room_name(new_name)
 - Description:
     - updates the room name the user wishes to create
 - Parameters:
@@ -129,11 +129,15 @@ joining_room : boolean
 
 join_room(room_id, display_name)
 - Description:
-    - attempts to join room with ${room_id} if successful navigates to ${room_id}'s page with ${display_name} as the user's name.
+    - attempts to join room room_id if successful navigates to room_id's page with display_name as the user's name.
 - Exceptions:
     - EMPTY_ROOM_ID : attempted to join a room with no room id.
     - ROOM_ID_DNE : attempted to join a room that does not exist.
     - EMPTY_DISPLAY_NAME : attempted to join a room with no display name.
+
+error_flag : object
+- Description:
+    - contains all exceptions as booleans.
 
 Exceptions (values can be accessed):
 - EMPTY_ROOM_NAME : user attempts to create a room with an empty room name.
@@ -148,6 +152,12 @@ Exceptions (values can be accessed):
 leave()
 - navigates user back to the home page.
 
+connecting : boolean
+- True if the user is connecting to the chat room.
+
+connected : boolean
+- True if the user is connected to the chat room, false if not.
+
 room_name : string
 - name of the room
 
@@ -158,10 +168,10 @@ user_id : string
 - unique id of the user to differentiate from other similar named users
 
 messages : array
-- array of all messages in chat room with format [{user_id, content}]
+- array of all messages in chat room with format [ object{user_id, content}, ..]
 
 members : array
-- array of all members in the room with format [{user_id, name}, ...]
+- array of all members in the room with format [ object{user_id, name}, ...]
 
 message : string
 - message the user wishes to send to other users in the chat room.
@@ -172,21 +182,29 @@ update_message(new_message)
 - Parameters:
     - new_message : message the user wishes to send.
 
-send_message(message)
+send_message(message, member_id, room_id)
 - Description:
-    - sends ${message} to the other users in the chat room
+    - sends a message to the other users in the chat room
 - Parameters:
     - message : message the user wishes to send
+    - member_id : id of the user
+    - room_id : id of the room the user is sending the message to
 - Exceptions:
     - EMPTY_MESSAGE : user attempted to send an empty message
 
 Exceptions (values can be accessed):
-
+- NO_ROOM_ID_ERROR : room id not included in url parameter.
+- NO_NAME_ERROR : display name not included in url parameter.
+- USER_SIGN_OUT_ERROR : true when user logs out of their anonymous account. This should never happen. 
+- NO_ROOM_NAME_ERROR : room's name is not in database.
+- ROOM_NAME_DB_ERROR : cannot access room's names database.
+- MESSAGE_LISTENER_ERROR : cannot recieve NEW_MESSAGE events.
+- MEMBERS_LISTEN_ERROR : cannot recieve USER_LEFT and NEW_USER events.
 
 ### Global API
 room_exists(room_id) : boolean
 - Description:
-    - Checks if room with ${room_id} exists.
+    - Checks if room with room_id exists.
 - Returns:
     - True if the room exists false otherwise.
 
@@ -194,21 +212,27 @@ room_exists(room_id) : boolean
 ## Tech Stack
 
 **React**
-- react-router will be used to serve single-page apps.
+- UI.
+
+**React Router**
+- to serve single page apps.
 
 **Firebase Authentication** (Acts as a key generation service)
-- User will be logged in anonymously and automatically to get a unique id to act as a key in the room members database.
+- Users will be logged in anonymously and automatically to get a unique id to act as a member id.
 
-**Firebase realtime database** (Also acts as a websocket service)
+**Firebase firestore database/room_members/room_id/members/** (Also acts as a websocket service)
 - Contains members currently in each room.
-- Connect a listener to this database to listen for USER_LEFT and NEW_USER Events.
-- When the listener connects it will return a list of all the users in the room.
-- An onDisconnect() routine will remove the user from the room when he or she leaves (equivalent to emitting a USER_LEFT event to the other users).
-- When a new user enters or a user leaves the room, the database will be updated sending the new list to user's listening (equivalent to a NEW_USER or USER_LEFT event).
+- Query Database to get a list of members in the room that the user is in.
+- Connect a listener to this database to listen for USER_LEFT and NEW_USER Events (websocket service ability).
+- When a user connects to this database a NEW_USER event should be emitted (websocket service ability).
+- When a user disconnects from this database a USER_LEFT event should be emitted (websocket service ability).
 
-**Firebase firestore** (Also acts as a websocket service)
+**Firebase firestore database/messages/room_id/messages/** (Also acts as a websocket service)
 - Contains all messages of each room.
-- Connect a listener to listen for NEW_MESSAGE events.
-- First call to the listener returns all the old messages in the room (equivalent to querying for past messages), subsequent calls will return a new message.
-    - Can cache old messages to save on bandwidth when entering the room a subsequent time.
+- Query database to get old messages of the room the user is in.
+    - can cache old messages to save on bandwidth if the user enters the room a subsequent time.
+- Connect a listener to this database to listen for NEW_MESSAGE events (websocket service ability).
+
+**Firebase firestore database/room_names/room_id**
+- Query database to get the name of the room that the user is currently in.
 
