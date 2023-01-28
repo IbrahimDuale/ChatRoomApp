@@ -1,0 +1,117 @@
+/* X-Small devices (portrait phones, less than 576px) */
+
+/*outer most container*/
+.createForm {
+    box-sizing: border-box;
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    font-size: 1.3rem;
+    row-gap: 40px;
+}
+
+/*Form minus the clipBoard*/
+.createForm__formContainer {
+    box-sizing: border-box;
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+/*Room name and room input container*/
+.createForm__roomContainer {
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+}
+
+/*Container for the room name input field*/
+.createForm__roomInputContainer {
+    box-sizing: border-box;
+    flex-grow: 0.7;
+    display: flex;
+}
+
+/*Input text for the room name*/
+.createForm__roomInput {
+    flex-grow: 1;
+    width: 100%;
+    text-align: center;
+    height: 35px;
+    font-size: 1.1rem;
+    font-family: cursive;
+}
+
+
+/*Create button container*/
+.createForm__createRoomButtonContainer {
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    height: 50px;
+}
+
+/*create room button*/
+.createForm__createRoomButtom {
+    font-size: 1.2rem;
+    font-family: cursive;
+    height: 100%;
+    width: 150px;
+    color: #000;
+    background-color: #ffc107;
+    border-color: #ffc107;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.createForm__createRoomButtom:hover {
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.createForm_clipBoardContainer {
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 15px;
+    justify-content: space-between;
+}
+
+/*room ID text styles*/
+.createForm__clipBoardText {
+    display: flex;
+    align-items: center;
+}
+
+/*contains loader and clipboard copyable content*/
+.createForm__clipBoardCopy {
+    height: fit-content;
+    box-sizing: border-box;
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-end;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {}
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {}
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {}

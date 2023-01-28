@@ -9,7 +9,7 @@ const Navigation = ({ links, active_index, set_active_index }) => {
 
     return (
         <div className="navigation">
-            {links.map((text, i) => <NavLink key={i} text={text} active={i == active_index} set_active_index={() => set_active_index(i)} />)}
+            {links.map((text, i) => <NavLink key={i} text={text} active={i === active_index} set_active_index={() => set_active_index(i)} />)}
         </div>
     )
 }
