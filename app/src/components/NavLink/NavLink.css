@@ -5,6 +5,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 .navLink--active {
@@ -15,8 +16,8 @@
 
 .navLink--default {
     color: #fff;
-    background-color: #6c757d;
-    border-color: #6c757d;
+    background-color: #dc3545;
+    border-color: #dc3545;
 }
 
 .navLink__text {

@@ -1,0 +1,16 @@
+.clipBoard {
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.clipBoard__copy {
+    cursor: pointer;
+    background-color: lightgray;
+    border: 2px dashed black;
+    padding: 10px;
+
+}
