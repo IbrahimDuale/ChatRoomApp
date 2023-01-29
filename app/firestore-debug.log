@@ -1,4 +1,4 @@
-Jan. 27, 2023 6:39:52 P.M. com.google.cloud.datastore.emulator.firestore.websocket.WebSocketServer start
+Jan. 29, 2023 10:15:08 A.M. com.google.cloud.datastore.emulator.firestore.websocket.WebSocketServer start
 INFO: Started WebSocket server on ws://127.0.0.1:9150
 API endpoint: http://127.0.0.1:8080
 If you are using a library that supports the FIRESTORE_EMULATOR_HOST environment variable, run:
@@ -7,211 +7,117 @@ If you are using a library that supports the FIRESTORE_EMULATOR_HOST environment
 
 Dev App Server is now running.
 
-Jan. 27, 2023 7:04:57 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Jan. 29, 2023 10:41:18 A.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:04:57 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Jan. 29, 2023 10:41:18 A.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:04:57 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Jan. 29, 2023 10:41:19 A.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:04:58 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Jan. 29, 2023 10:42:19 A.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:04:59 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:04:59 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:04:59 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:05:00 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:05:00 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:05:00 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:05:01 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:05:01 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:05:02 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:05:44 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:05:44 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:05:44 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:05:56 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:05:58 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:06:00 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:06:02 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:06:12 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:06:42 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:07:12 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:07:12 P.M. com.google.cloud.datastore.emulator.firestore.webchannel.FirestoreV1WebChannelAdapter$FirestoreWriteHandler onClose
+Jan. 29, 2023 10:42:19 A.M. com.google.cloud.datastore.emulator.firestore.webchannel.FirestoreV1WebChannelAdapter$FirestoreWriteHandler onClose
 INFO: channel closed
-Jan. 27, 2023 7:08:00 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Jan. 29, 2023 11:13:29 A.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:08:00 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Jan. 29, 2023 11:13:29 A.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:08:00 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Jan. 29, 2023 11:13:29 A.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:08:01 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Jan. 29, 2023 11:14:29 A.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:08:03 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:09:03 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:09:03 P.M. com.google.cloud.datastore.emulator.firestore.webchannel.FirestoreV1WebChannelAdapter$FirestoreWriteHandler onClose
+Jan. 29, 2023 11:14:29 A.M. com.google.cloud.datastore.emulator.firestore.webchannel.FirestoreV1WebChannelAdapter$FirestoreWriteHandler onClose
 INFO: channel closed
-Jan. 27, 2023 7:29:22 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Jan. 29, 2023 11:45:08 A.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:29:22 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Jan. 29, 2023 11:45:08 A.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:29:22 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Jan. 29, 2023 11:45:08 A.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:31:28 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Jan. 29, 2023 11:46:08 A.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:31:28 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:31:28 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:32:28 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:32:28 P.M. com.google.cloud.datastore.emulator.firestore.webchannel.FirestoreV1WebChannelAdapter$FirestoreWriteHandler onClose
+Jan. 29, 2023 11:46:08 A.M. com.google.cloud.datastore.emulator.firestore.webchannel.FirestoreV1WebChannelAdapter$FirestoreWriteHandler onClose
 INFO: channel closed
-Jan. 27, 2023 7:34:35 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Jan. 29, 2023 11:51:49 A.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:34:35 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Jan. 29, 2023 11:51:49 A.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:34:35 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Jan. 29, 2023 11:51:49 A.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:35:35 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Jan. 29, 2023 11:52:49 A.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:35:35 P.M. com.google.cloud.datastore.emulator.firestore.webchannel.FirestoreV1WebChannelAdapter$FirestoreWriteHandler onClose
+Jan. 29, 2023 11:52:49 A.M. com.google.cloud.datastore.emulator.firestore.webchannel.FirestoreV1WebChannelAdapter$FirestoreWriteHandler onClose
 INFO: channel closed
-Jan. 27, 2023 7:35:41 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Jan. 29, 2023 12:03:47 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:35:41 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Jan. 29, 2023 12:03:47 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:35:41 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Jan. 29, 2023 12:03:47 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:35:52 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Jan. 29, 2023 12:04:47 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:35:52 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:35:52 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:36:13 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:36:15 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:36:19 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:36:49 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:37:19 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:37:19 P.M. com.google.cloud.datastore.emulator.firestore.webchannel.FirestoreV1WebChannelAdapter$FirestoreWriteHandler onClose
+Jan. 29, 2023 12:04:47 P.M. com.google.cloud.datastore.emulator.firestore.webchannel.FirestoreV1WebChannelAdapter$FirestoreWriteHandler onClose
 INFO: channel closed
-Jan. 27, 2023 7:38:49 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Jan. 29, 2023 12:27:55 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:38:50 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Jan. 29, 2023 12:27:55 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:38:50 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Jan. 29, 2023 12:27:56 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:39:50 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Jan. 29, 2023 12:32:00 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:39:50 P.M. com.google.cloud.datastore.emulator.firestore.webchannel.FirestoreV1WebChannelAdapter$FirestoreWriteHandler onClose
+Jan. 29, 2023 12:32:00 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Jan. 29, 2023 12:32:00 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Jan. 29, 2023 12:32:07 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Jan. 29, 2023 12:32:07 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Jan. 29, 2023 12:32:07 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Jan. 29, 2023 12:33:08 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Jan. 29, 2023 12:33:08 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Jan. 29, 2023 12:33:09 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Jan. 29, 2023 12:33:35 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Jan. 29, 2023 12:33:37 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Jan. 29, 2023 12:33:45 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Jan. 29, 2023 12:33:51 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Jan. 29, 2023 12:34:21 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Jan. 29, 2023 12:34:51 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Jan. 29, 2023 12:34:51 P.M. com.google.cloud.datastore.emulator.firestore.webchannel.FirestoreV1WebChannelAdapter$FirestoreWriteHandler onClose
 INFO: channel closed
-Jan. 27, 2023 7:41:07 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Jan. 29, 2023 12:50:20 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:41:07 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Jan. 29, 2023 12:50:20 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:41:07 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Jan. 29, 2023 12:50:20 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:41:29 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Jan. 29, 2023 12:50:37 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:41:29 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Jan. 29, 2023 12:50:38 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:41:29 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Jan. 29, 2023 12:50:46 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:42:28 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Jan. 29, 2023 12:50:46 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:42:28 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Jan. 29, 2023 12:50:46 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:42:29 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Jan. 29, 2023 12:50:56 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:42:30 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Jan. 29, 2023 12:51:05 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:42:44 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Jan. 29, 2023 12:51:35 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:42:46 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Jan. 29, 2023 12:52:05 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:43:02 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:43:05 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:43:24 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:43:24 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:43:29 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:43:30 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:43:46 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:44:10 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:44:11 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:45:10 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:45:10 P.M. com.google.cloud.datastore.emulator.firestore.webchannel.FirestoreV1WebChannelAdapter$FirestoreWriteHandler onClose
-INFO: channel closed
-Jan. 27, 2023 7:53:02 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:53:02 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:53:02 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:54:02 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 7:54:03 P.M. com.google.cloud.datastore.emulator.firestore.webchannel.FirestoreV1WebChannelAdapter$FirestoreWriteHandler onClose
-INFO: channel closed
-Jan. 27, 2023 8:03:08 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 8:03:08 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 8:03:08 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 8:03:59 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 8:04:00 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 8:04:00 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 8:04:01 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 8:05:02 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 8:05:02 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 8:05:02 P.M. com.google.cloud.datastore.emulator.firestore.webchannel.FirestoreV1WebChannelAdapter$FirestoreWriteHandler onClose
-INFO: channel closed
-Jan. 27, 2023 8:10:55 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 8:10:55 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 8:10:55 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 8:11:55 P.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Jan. 27, 2023 8:11:55 P.M. com.google.cloud.datastore.emulator.firestore.webchannel.FirestoreV1WebChannelAdapter$FirestoreWriteHandler onClose
+Jan. 29, 2023 12:52:05 P.M. com.google.cloud.datastore.emulator.firestore.webchannel.FirestoreV1WebChannelAdapter$FirestoreWriteHandler onClose
 INFO: channel closed

@@ -1,0 +1,9 @@
+/*Room name and room input container*/
+.textInputField {
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+}
