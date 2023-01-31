@@ -143,9 +143,9 @@ Exceptions (values can be accessed):
 - EMPTY_ROOM_NAME : user attempts to create a room with an empty room name.
 - ID_GENERATION_FAIL : could not create a room id.
 - DATABASE_WRITE_FAIL : room not created because could not write to database.
+- EMPTY_DISPLAY_NAME : attempted to join a room with no display name.
 - EMPTY_ROOM_ID : attempted to join a room with no room id.
 - ROOM_ID_DNE : attempted to join a room that does not exist.
-- EMPTY_DISPLAY_NAME : attempted to join a room with no display name.
 
 ### Chat Room Page API
 

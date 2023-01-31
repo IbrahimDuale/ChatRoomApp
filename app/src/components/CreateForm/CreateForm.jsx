@@ -1,34 +1,26 @@
-import { useState } from "react";
-import BeatLoader from "react-spinners/BeatLoader";
+import Button from "../Button/Button";
 import ClipBoard from "../ClipBoard/ClipBoard";
+import ErrorText from "../ErrorText/ErrorText";
+import Loader from "../Loader/Loader";
+import TextInputField from "../TextInputField/TextInputField";
 import "./CreateForm.css";
 
-const override = {
-    display: "block",
-    margin: "0 auto",
-    borderColor: "red",
-};
 
 /**
  * Ui for creating a room in the login page
  */
 const CreateForm = ({ room_name, update_room_name, create_room, creating_room,
     created_room_id, error_flags }) => {
-    let [color,] = useState("#000");
     const maxLength = 25;
+    //shows counter on input when input is in focus
     return (
         <div className="createForm">
             <div className="createForm__formContainer">
-                <div className="createForm__roomContainer">
-                    <p className="createForm__roomName">
-                        Room Name:
-                    </p>
-                    <div className="createForm__roomInputContainer">
-                        <input type="text" className="createForm__roomInput" maxLength={maxLength} value={room_name} onChange={(e) => update_room_name(e.target.value)} />
-                    </div>
-                </div>
+                <ErrorText text={"*Cannot create a room with no room name."} flag={error_flags.EMPTY_ROOM_NAME} />
+                <TextInputField name={"Room Name:"} text={room_name} maxLength={maxLength} onChange={(new_val) => update_room_name(new_val)}
+                    empty_name_error={error_flags.EMPTY_ROOM_NAME} />
                 <div className="createForm__createRoomButtonContainer">
-                    <button className="createForm__createRoomButtom" onClick={() => create_room(room_name)}>Create Room</button>
+                    <Loader isLoading={creating_room} component={<Button onClick={() => create_room(room_name)} text={"Create Room"} />} />
                 </div>
             </div>
             <div className="createForm_clipBoardContainer">
@@ -36,20 +28,13 @@ const CreateForm = ({ room_name, update_room_name, create_room, creating_room,
                     Click Copy:
                 </p>
                 <div className="createForm__clipBoardCopy">
-                    {creating_room ?
-                        (
-                            <BeatLoader
-                                color={color}
-                                loading={creating_room}
-                                cssOverride={override}
-                                size={10}
-                                aria-label="Loading Spinner"
-                                data-testid="loader"
-                            />
-                        ) :
-                        (<ClipBoard copyText={created_room_id} />)
-                    }
+                    <Loader isLoading={creating_room} component={<ClipBoard copyText={created_room_id} />} />
                 </div>
+                {
+                    error_flags.ID_GENERATION_FAIL ?
+                        (<ErrorText text={"*Could not create room."} flag={error_flags.ID_GENERATION_FAIL} />) :
+                        (<ErrorText text={"*Failed to contact database."} flag={error_flags.DATABASE_WRITE_FAIL} />)
+                }
             </div>
         </div>
     )

@@ -19,36 +19,8 @@
     height: fit-content;
     display: flex;
     flex-direction: column;
-    row-gap: 20px;
-}
 
-/*Room name and room input container*/
-.createForm__roomContainer {
-    box-sizing: border-box;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 60px;
 }
-
-/*Container for the room name input field*/
-.createForm__roomInputContainer {
-    box-sizing: border-box;
-    flex-grow: 0.7;
-    display: flex;
-}
-
-/*Input text for the room name*/
-.createForm__roomInput {
-    flex-grow: 1;
-    width: 100%;
-    text-align: center;
-    height: 35px;
-    font-size: 1.1rem;
-    font-family: cursive;
-}
-
 
 /*Create button container*/
 .createForm__createRoomButtonContainer {
@@ -57,25 +29,6 @@
     display: flex;
     justify-content: flex-end;
     height: 50px;
-}
-
-/*create room button*/
-.createForm__createRoomButtom {
-    font-size: 1.2rem;
-    font-family: cursive;
-    height: 100%;
-    width: 150px;
-    color: #000;
-    background-color: #ffc107;
-    border-color: #ffc107;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-.createForm__createRoomButtom:hover {
-    color: #fff;
-    background-color: #6c757d;
-    border-color: #6c757d;
 }
 
 .createForm_clipBoardContainer {
@@ -100,6 +53,22 @@
     flex-grow: 1;
     justify-content: flex-end;
 }
+
+/*Errors*/
+.createForm__errorContainer {
+    width: 100%;
+    font-size: 0.8em;
+    color: red;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+
+.createForm__error--hide {
+    display: none;
+}
+
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {}

@@ -1,0 +1,19 @@
+/*outer most container*/
+.joinForm {
+    box-sizing: border-box;
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    font-size: 1.3rem;
+}
+
+/*join button container*/
+.joinForm__buttonContainer {
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    height: 50px;
+}

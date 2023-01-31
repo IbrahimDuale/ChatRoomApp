@@ -1,0 +1,14 @@
+/*Errors*/
+.error__text {
+    width: 100%;
+    font-size: 0.8em;
+    color: red;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+
+.error__text--hide {
+    visibility: hidden;
+}

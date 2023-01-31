@@ -1,16 +1,35 @@
+/*outer most container*/
 .clipBoard {
     box-sizing: border-box;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
+/*container with the text*/
 .clipBoard__copy {
     cursor: pointer;
     background-color: lightgray;
     border: 2px dashed black;
     padding: 10px;
+}
 
+/*styling that appears after a successful copy*/
+.clipBoard__copy--success {
+    cursor: pointer;
+    background-color: lightgreen;
+    border: 2px dashed black;
+    padding: 10px;
+    transform: scale(1);
+}
+
+/*Text that temporarily appears after a successful copy*/
+.clipBoard__copiedText {
+    position: absolute;
+    left: 37.5%;
+}
+
+.clipBoard__copy--hide {
+    visibility: hidden;
 }
