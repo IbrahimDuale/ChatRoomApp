@@ -1,25 +1,28 @@
-import InputField from "../InputField/InputField";
+import Button from "../Button/Button";
+import ErrorText from "../ErrorText/ErrorText";
+import Loader from "../Loader/Loader";
+import TextInputField from "../TextInputField/TextInputField";
 import "./JoinForm.css";
 
 const JoinForm = ({ username, update_username, room_id, update_room_id,
     join_room, joining_room, error_flags }) => {
-    const textMaxLength = 25;
+    //max length for a username
+    const username_maxLength = 25;
     return (
         <div className="joinForm">
-            <div className="joinForm__innerContainer">
-                <div className="joinForm__inputContainer">
-                    <p className="joinForm__text">
-                        Display Name:
-                    </p>
-                    <InputField text={username} maxLength={textMaxLength} onChange={(new_val) => update_username(new_val)}
-                        empty_name_error={error_flags.EMPTY_DISPLAY_NAME} />
-                </div>
-                <div className="joinForm__inputContainer">
-                    <p className="joinForm__text">
-                        Display Name:
-                    </p>
-                </div>
+            <ErrorText text={"*Cannot join a room with no user name."} flag={error_flags.EMPTY_DISPLAY_NAME} />
+            <TextInputField name={"Name:"} text={username} maxLength={username_maxLength} onChange={(new_val) => update_username(new_val)}
+                empty_name_error={error_flags.EMPTY_DISPLAY_NAME} />
+            {error_flags.EMPTY_ROOM_ID ?
+                (<ErrorText text={"*Cannot join a room with no room id."} flag={error_flags.EMPTY_ROOM_ID} />) :
+                (<ErrorText text={"*room does not exist."} flag={error_flags.ROOM_ID_DNE} />)
+            }
+            <TextInputField name={"Room Id:"} text={room_id} maxLength={100} onChange={(new_val) => update_room_id(new_val)}
+                empty_name_error={error_flags.EMPTY_ROOM_ID || error_flags.ROOM_ID_DNE} />
+            <div className="joinForm__buttonContainer">
+                <Loader isLoading={joining_room} component={<Button onClick={() => join_room(room_id, username)} text={"Join Room"} />} />
             </div>
+
         </div>
     )
 }

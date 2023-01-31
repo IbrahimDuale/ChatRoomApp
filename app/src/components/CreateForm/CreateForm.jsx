@@ -20,7 +20,7 @@ const CreateForm = ({ room_name, update_room_name, create_room, creating_room,
                 <TextInputField name={"Room Name:"} text={room_name} maxLength={maxLength} onChange={(new_val) => update_room_name(new_val)}
                     empty_name_error={error_flags.EMPTY_ROOM_NAME} />
                 <div className="createForm__createRoomButtonContainer">
-                    <Button onClick={() => create_room(room_name)} text={"Create Room"} />
+                    <Loader isLoading={creating_room} component={<Button onClick={() => create_room(room_name)} text={"Create Room"} />} />
                 </div>
             </div>
             <div className="createForm_clipBoardContainer">
@@ -30,8 +30,11 @@ const CreateForm = ({ room_name, update_room_name, create_room, creating_room,
                 <div className="createForm__clipBoardCopy">
                     <Loader isLoading={creating_room} component={<ClipBoard copyText={created_room_id} />} />
                 </div>
-                <ErrorText text={"*Could not create room."} flag={error_flags.ID_GENERATION_FAIL} />
-                <ErrorText text={"*Failed to contact database."} flag={error_flags.DATABASE_WRITE_FAIL} />
+                {
+                    error_flags.ID_GENERATION_FAIL ?
+                        (<ErrorText text={"*Could not create room."} flag={error_flags.ID_GENERATION_FAIL} />) :
+                        (<ErrorText text={"*Failed to contact database."} flag={error_flags.DATABASE_WRITE_FAIL} />)
+                }
             </div>
         </div>
     )

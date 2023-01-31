@@ -12,9 +12,11 @@ const Loader = ({ isLoading, component }) => {
     let [color,] = useState("#000");
 
     return (
-        <>
+        <div className="loader">
+
             {isLoading ?
                 (
+
                     <BeatLoader
                         color={color}
                         loading={isLoading}
@@ -26,7 +28,7 @@ const Loader = ({ isLoading, component }) => {
                 ) :
                 (component)
             }
-        </>
+        </div>
     )
 }
 

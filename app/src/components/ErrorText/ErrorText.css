@@ -10,5 +10,5 @@
 
 
 .error__text--hide {
-    display: none;
+    visibility: hidden;
 }

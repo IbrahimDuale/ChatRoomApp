@@ -3,9 +3,10 @@ WARNING: Illegal reflective access by io.netty.util.internal.ReflectionUtil (fil
 WARNING: Please consider reporting this to the maintainers of io.netty.util.internal.ReflectionUtil
 WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
 WARNING: All illegal access operations will be denied in a future release
-10:15:10.224 [NamespaceSystem-akka.actor.default-dispatcher-4] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
-10:15:10.414 [main] INFO com.firebase.server.forge.App$ - Listening at 127.0.0.1:9000
-10:16:29.496 [NamespaceSystem-akka.actor.default-dispatcher-5] INFO com.firebase.core.namespace.NamespaceActor - chat-message-app-e1409-default-rtdb successfully activated FBKV (SurveyIdle(0)) wait: 141ms, init: 0ms
-10:16:29.550 [NamespaceSystem-blocking-namespace-operation-dispatcher-7] INFO com.firebase.core.namespace.StateManager - Namespace chat-message-app-e1409-default-rtdb status Active to Active
-10:16:29.580 [NamespaceSystem-blocking-namespace-operation-dispatcher-7] INFO com.firebase.core.namespace.StateManager - Namespace chat-message-app-e1409-default-rtdb status Active to Active
-10:16:29.611 [NamespaceSystem-blocking-namespace-operation-dispatcher-7] INFO com.firebase.core.namespace.StateManager - Namespace chat-message-app-e1409-default-rtdb status Active to Active
+09:27:03.114 [NamespaceSystem-akka.actor.default-dispatcher-4] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+09:27:03.301 [main] INFO com.firebase.server.forge.App$ - Listening at 127.0.0.1:9000
+09:27:13.315 [NamespaceSystem-akka.actor.default-dispatcher-6] INFO com.firebase.core.namespace.NamespaceActor - chat-message-app-e1409-default-rtdb successfully activated FBKV (SurveyIdle(0)) wait: 132ms, init: 0ms
+09:27:13.367 [NamespaceSystem-blocking-namespace-operation-dispatcher-7] INFO com.firebase.core.namespace.StateManager - Namespace chat-message-app-e1409-default-rtdb status Active to Active
+09:27:13.416 [NamespaceSystem-blocking-namespace-operation-dispatcher-7] INFO com.firebase.core.namespace.StateManager - Namespace chat-message-app-e1409-default-rtdb status Active to Active
+09:27:13.430 [NamespaceSystem-blocking-namespace-operation-dispatcher-7] INFO com.firebase.core.namespace.StateManager - Namespace chat-message-app-e1409-default-rtdb status Active to Active
+10:22:14.907 [NamespaceSystem-blocking-namespace-operation-dispatcher-10] INFO com.firebase.core.stats.EventAuditLog - {"eventId":"snmwRhbKLTHmLVP23h+0XJbxRCo=","namespace":"chat-message-app-e1409-default-rtdb","projectNumber":"123456789","eventType":"providers/google.firebase.database/eventTypes/ref.create","flowName":"projects/chat-message-app-e1409/topics/us-central1-new_user-0","resource":"projects/_/instances/chat-message-app-e1409-default-rtdb/refs/users/-NN7PyQuN84eODHzpXpl","evaluationTimestamp":"2023-01-31T15:22:14.866Z","stage":"TRIGGERED"}

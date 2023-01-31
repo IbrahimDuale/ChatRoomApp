@@ -1,0 +1,7 @@
+.loader {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    width: max(150px, fit-content);
+    word-wrap: break-word;
+}
