@@ -11,14 +11,14 @@ import "./CreateForm.css";
  */
 const CreateForm = ({ room_name, update_room_name, create_room, creating_room,
     created_room_id, error_flags }) => {
-    const maxLength = 25;
+    const maxLength = 7;
     //shows counter on input when input is in focus
     return (
         <div className="createForm">
             <div className="createForm__formContainer">
                 <ErrorText text={"*Cannot create a room with no room name."} flag={error_flags.EMPTY_ROOM_NAME} />
                 <TextInputField name={"Room Name:"} text={room_name} maxLength={maxLength} onChange={(new_val) => update_room_name(new_val)}
-                    empty_name_error={error_flags.EMPTY_ROOM_NAME} />
+                    empty_name_error={error_flags.EMPTY_ROOM_NAME} onEnter={() => create_room(room_name)} />
                 <div className="createForm__createRoomButtonContainer">
                     <Loader isLoading={creating_room} component={<Button onClick={() => create_room(room_name)} text={"Create Room"} />} />
                 </div>

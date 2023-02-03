@@ -1,0 +1,29 @@
+.members {
+    box-sizing: border-box;
+    display: flex;
+    overflow: auto;
+    height: 100%;
+    flex-grow: 1;
+}
+
+
+.members__scrollableContainer {
+    box-sizing: border-box;
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    align-self: stretch;
+    flex-grow: 1;
+
+}
+
+.member__text {
+    box-sizing: border-box;
+    padding: 5px 5px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    border-bottom: 1px solid black;
+    align-self: stretch;
+}

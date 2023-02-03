@@ -161,14 +161,14 @@ connected : boolean
 room_name : string
 - name of the room
 
-display_name : string
+username : string
 - name of the user
 
 user_id : string
 - unique id of the user to differentiate from other similar named users
 
 messages : array
-- array of all messages in chat room with format [ object{user_id, content}, ..]
+- array of all messages in chat room with format [ object{user_id, content, name, timeStamp}, ..]
 
 members : array
 - array of all members in the room with format [ object{user_id, name}, ...]
@@ -182,13 +182,11 @@ update_message(new_message)
 - Parameters:
     - new_message : message the user wishes to send.
 
-send_message(message, member_id, room_id)
+send_message(message)
 - Description:
     - sends a message to the other users in the chat room
 - Parameters:
     - message : message the user wishes to send
-    - member_id : id of the user
-    - room_id : id of the room the user is sending the message to
 - Exceptions:
     - EMPTY_MESSAGE : user attempted to send an empty message
 

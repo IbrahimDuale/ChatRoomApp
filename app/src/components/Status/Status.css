@@ -1,0 +1,23 @@
+.status {
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.status__icon {
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.status--online {
+    color: rgb(124, 252, 0);
+}
+
+.status--offline {
+    color: red;
+}

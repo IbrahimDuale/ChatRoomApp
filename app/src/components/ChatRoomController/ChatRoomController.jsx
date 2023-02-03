@@ -5,7 +5,8 @@ import { realtimeDb, auth, db, ROOM_NAMES_COLLECTION, MEMBERS_COLLECTION, MESSAG
 import { useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { collection, doc, getDoc, onSnapshot, serverTimestamp, setDoc, Timestamp } from "firebase/firestore";
-import { ref, onValue, push, onDisconnect, set } from "firebase/database";
+import { ref, onValue, onDisconnect, set, getDatabase, remove } from "firebase/database";
+import { useRef } from "react";
 
 /**
  * controls state of the chat room page.
@@ -24,7 +25,14 @@ const ChatRoomController = () => {
     /**
      * redirects the user to the home page without reloading.
      */
-    const leave = () => {
+    const leave = (member_id) => {
+        const myConnectionsRef = ref(getDatabase(), `users/${member_id}`);
+        console.log(myConnectionsRef);
+        remove(myConnectionsRef).catch((err) => {
+            if (err) {
+                console.error("could not establish onDisconnect event", err);
+            }
+        });
         navigate("/");
     }
 
@@ -116,7 +124,7 @@ const ChatRoomController = () => {
             });
 
             if (docSnap.exists()) {
-                set_room_name(docSnap.data());
+                set_room_name(docSnap.data().name);
                 SET_ROOM_NAME_RECIEVED(true);
             } else {
                 //entry not in database.
@@ -227,17 +235,16 @@ const ChatRoomController = () => {
             // Since I can connect from multiple devices or browser tabs, we store each connection instance separately
             // any time that connectionsRef's value is null (i.e. has no children) I am offline
 
-            const myConnectionsRef = ref(db, `users/`);
+            const myConnectionsRef = ref(db, `users/${member_id}`);
             const member_data = { name: member_name, id: member_id, room_id, };
 
             const connectedRef = ref(db, '.info/connected');
             onValue(connectedRef, (snap) => {
                 if (snap.val() === true) {
                     // We're connected (or reconnected)! Do anything here that should happen only if online (or on reconnect)
-                    const con = push(myConnectionsRef);
 
                     // When I disconnect, remove this device
-                    onDisconnect(con).remove().catch((err) => {
+                    onDisconnect(myConnectionsRef).remove().catch((err) => {
                         if (err) {
                             console.error("could not establish onDisconnect event", err);
                         }
@@ -245,7 +252,7 @@ const ChatRoomController = () => {
 
                     // Add this device to my connections list
                     // this value could contain info about the device or a timestamp too
-                    set(con, member_data);
+                    set(myConnectionsRef, member_data);
                     SET_ONDISCONNECT_SETUP(true);
                 }
             });
@@ -290,6 +297,9 @@ const ChatRoomController = () => {
 
     //message the user is thinking of sending to the room.
     const [message, setMessage] = useState("");
+    //true when user tried to send an empty message
+    const [EMPTY_MESSAGE_ERROR, SET_EMPTY_MESSAGE_ERROR] = useState(false);
+
 
     /**
      * Updates the message the user is thinking of sending to ${new_message}
@@ -297,27 +307,38 @@ const ChatRoomController = () => {
      */
     const update_message = (new_message) => {
         setMessage(new_message);
+        SET_EMPTY_MESSAGE_ERROR(false);
     }
 
+    //reference for the message input field; used for refocusing after sending a message.
+    const message_ref = useRef(null);
 
     /**
      * Sends a message to the room.
      * @param {string} message message the user is sending
      */
-    const send_message = async (message, member_id, room_id) => {
+    const send_message = async (message, member_id, room_id, name, ref) => {
+        if (!message) {
+            SET_EMPTY_MESSAGE_ERROR(true);
+            return;
+        }
         const newDoc = doc(collection(db, MESSAGES_COLLECTION, room_id, MESSAGES_COLLECTION));
-        return setDoc(newDoc, { content: message, id: member_id, timeStamp: serverTimestamp() })
+        if (ref.current) {
+            ref.current.focus();
+        }
+        update_message("");
+        return setDoc(newDoc, { content: message, member_id: member_id, timeStamp: serverTimestamp(), name })
     }
+
+
 
 
 
     return (
         <div className="chatRoomController">
-            <ChatRoom NO_NAME_ERROR={NO_NAME_ERROR} NO_ROOM_ID_ERROR={NO_ROOM_ID_ERROR} USER_SIGN_OUT_ERROR={USER_SIGN_OUT_ERROR} NO_ROOM_NAME_ERROR={NO_ROOM_NAME_ERROR}
-                ROOM_NAME_DB_ERROR={ROOM_NAME_DB_ERROR} MESSAGE_LISTENER_ERROR={MESSAGE_LISTENER_ERROR} MEMBERS_LISTEN_ERROR={MEMBERS_LISTEN_ERROR}
-                leave={leave} connecting={connecting} connected={connected} room_name={room_name} display_name={display_name} user_id={user_id}
-                messages={Object.values(messages)} members={Object.values(members)} message={message} update_message={update_message} send_message={send_message} />
-            <button onClick={() => send_message("This is a new message", user_id, room_id)}>Send Message</button>
+            <ChatRoom input_field_ref={message_ref} error_flags={{ EMPTY_MESSAGE_ERROR, NO_ROOM_ID_ERROR, NO_NAME_ERROR, USER_SIGN_OUT_ERROR, NO_ROOM_NAME_ERROR, ROOM_NAME_DB_ERROR, MESSAGE_LISTENER_ERROR, MEMBERS_LISTEN_ERROR }}
+                leave={leave} connecting={connecting} connected={connected} room_name={room_name} username={display_name} user_id={user_id}
+                messages={messages} members={members} message={message} update_message={(new_val) => update_message(new_val)} send_message={(msg) => send_message(msg, user_id, room_id, display_name, message_ref)} />
         </div>
     )
 }

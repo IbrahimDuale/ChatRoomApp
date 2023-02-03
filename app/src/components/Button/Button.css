@@ -1,9 +1,9 @@
 /*create room button*/
-.buttom {
+.button {
     font-size: 1.2rem;
     font-family: cursive;
     height: 100%;
-    width: 150px;
+    width: 100%;
     color: #000;
     background-color: #ffc107;
     border-color: #ffc107;
@@ -11,7 +11,7 @@
     cursor: pointer;
 }
 
-.buttom:hover {
+.button:hover {
     color: #fff;
     background-color: #6c757d;
     border-color: #6c757d;
