@@ -1,0 +1,58 @@
+.chatBubble {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-self: stretch;
+    align-items: stretch;
+}
+
+.chatBubble--left {
+    justify-content: flex-start;
+}
+
+.chatBubble--right {
+    justify-content: flex-end;
+}
+
+.chatBubble__content {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    box-sizing: border-box;
+    padding: 10px;
+    border-radius: 8px;
+    color: #fff;
+    flex-grow: 0.8;
+    max-width: 80%;
+    word-wrap: break-word;
+
+}
+
+.chatBubble__text {
+    width: 100%;
+    max-width: 100%;
+}
+
+.chatBubble__content--blue {
+    background-color: #34b7f1;
+}
+
+.chatBubble__content--green {
+    background-color: rgb(80, 200, 120);
+}
+
+.chatBubble__username {
+    font-size: 0.7rem;
+}
+
+.chatBubble__time {
+    font-size: 0.7rem;
+    align-self: flex-end;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+    .chatBubble__content {
+        max-width: 400px;
+    }
+}

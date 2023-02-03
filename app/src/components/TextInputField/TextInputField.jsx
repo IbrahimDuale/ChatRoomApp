@@ -1,7 +1,7 @@
 import InputField from "../InputField/InputField";
 import "./TextInputField.css";
 
-const TextInputField = ({ name, text, maxLength, onChange, empty_name_error }) => {
+const TextInputField = ({ name, text, maxLength, onChange, empty_name_error, onEnter }) => {
 
     return (
         <div className="textInputField">
@@ -9,7 +9,7 @@ const TextInputField = ({ name, text, maxLength, onChange, empty_name_error }) =
                 {name}
             </p>
             <InputField text={text} maxLength={maxLength} onChange={(new_val) => onChange(new_val)}
-                empty_name_error={empty_name_error} />
+                empty_name_error={empty_name_error} onEnter={() => onEnter()} />
         </div>
     )
 }

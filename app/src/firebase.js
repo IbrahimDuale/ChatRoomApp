@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, connectAuthEmulator, signInAnonymously } from "firebase/auth";
+import { getAuth, connectAuthEmulator, signInAnonymously, setPersistence, inMemoryPersistence } from "firebase/auth";
 import { getFirestore, connectFirestoreEmulator } from "firebase/firestore";
 import { getDatabase, connectDatabaseEmulator } from "firebase/database";
 import { getFunctions, connectFunctionsEmulator } from "firebase/functions";
@@ -24,10 +24,11 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-signInAnonymously(auth)
-    .then((auth) => {
-        // Signed in..
-    })
+setPersistence(auth, inMemoryPersistence).then(() => {
+    return signInAnonymously(auth);
+}).then((auth) => {
+    // Signed in..
+})
     .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
@@ -44,7 +45,7 @@ connectAuthEmulator(auth, "http://localhost:9099");
 connectDatabaseEmulator(realtimeDb, "localhost", 9000);
 connectFunctionsEmulator(functions, "localhost", 5001);
 
-const admin_id = -1;
+const admin_id = "-1";
 const MESSAGES_COLLECTION = "messages";
 const ROOM_NAMES_COLLECTION = "room_names"
 const MEMBERS_COLLECTION = "room_members";

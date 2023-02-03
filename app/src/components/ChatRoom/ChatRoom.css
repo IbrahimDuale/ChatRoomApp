@@ -1,0 +1,186 @@
+/*outer most container*/
+.chatRoom {
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+}
+
+/*container for room name and connection status*/
+.chatRoom__header {
+    box-sizing: border-box;
+    background-color: #FFF8DC;
+    box-shadow: 0px 2px 2px #DCDCDC;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    min-height: 45px;
+    max-height: 45px;
+    width: 100%;
+}
+
+/*left part of navigation*/
+.chatRoom__header__left {
+    box-sizing: border-box;
+    display: flex;
+    column-gap: 10px;
+    height: 100%;
+    align-items: center;
+}
+
+/*right part of navigation*/
+.chatRoom__header__right {
+    box-sizing: border-box;
+    display: flex;
+    column-gap: 10px;
+    height: 100%;
+    align-items: center;
+}
+
+.chatRoom__iconContainer {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+}
+
+.chatRoom__iconContainer:hover {
+    color: white;
+    background-color: black;
+    border-radius: 8px;
+    padding: 4px;
+}
+
+.chatRoom__icon {
+    height: 25px;
+    width: 25px;
+}
+
+/*Title for the room*/
+.chatRoom__roomName {
+    box-sizing: border-box;
+    font-size: 1.6rem;
+}
+
+/*Icon*/
+.chatRoom__connectionStatus {
+    height: 100%;
+    width: 50px;
+    box-sizing: border-box;
+}
+
+/*container for everything except the header*/
+.chatRoom__contentContainer {
+    box-sizing: border-box;
+    display: flex;
+    flex-grow: 1;
+    min-height: calc(100% - 45px);
+    max-height: calc(100% - 45px);
+    width: 100%;
+    transform: scale(1);
+    overflow: hidden;
+}
+
+
+/*Container for the messages and component for sending messages.*/
+.chatRoom__chatAndMessageContainer {
+    box-sizing: border-box;
+    flex-grow: 1;
+    align-self: stretch;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+
+/*container for all the messages in the room*/
+.chatRoom__chatContainer {
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+    flex-grow: 1;
+    overflow: auto;
+    margin-bottom: 5px;
+}
+
+.chatRoom__innerContainer {
+    display: flex;
+    height: fit-content;
+    box-sizing: border-box;
+    width: 100%;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+/*Contains the inputfield the user writes a message and the send button*/
+.chatRoom__messageContainer {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    min-height: 50px;
+    max-height: 50px;
+    column-gap: 5px;
+    flex-wrap: nowrap;
+}
+
+/*input field where user writes their message.*/
+.chatRoom_inputFieldContainer {
+    box-sizing: border-box;
+    flex-grow: 1;
+    height: 100%;
+}
+
+.chatRoom__sendMessageContainer {
+    box-sizing: border-box;
+    flex-grow: 1;
+    max-width: 150px;
+    width: 100px;
+    height: 100%;
+    font-size: 1rem;
+}
+
+/*Container with members content*/
+.chatRoom__membersContainer {
+    flex-grow: 2;
+    min-width: 150px;
+    max-width: 250px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: -1px 0px 4px rgb(220, 220, 220);
+    height: 100%;
+    position: absolute;
+    right: 0px;
+    transition: transform 1s;
+}
+
+
+.chatRoom__members--hide {
+    transform: translate(100%);
+}
+
+/*container with members names*/
+.chatRoom__membersContentContainer {
+    box-sizing: border-box;
+    align-self: stretch;
+    flex-grow: 1;
+    width: 100%;
+    height: calc(100% - 45px);
+    background-color: white;
+}
+
+/*title of members container*/
+.chatRoom__membersTitle {
+    box-sizing: border-box;
+    font-size: 1.3rem;
+    padding: 10px 5px;
+    height: 45px;
+    width: 100%;
+    text-align: center;
+    background-color: #F5DEB3;
+    position: sticky;
+    top: 0px;
+    box-shadow: 0px 2px 4px rgb(192, 192, 192);
+}

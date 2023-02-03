@@ -1,17 +1,19 @@
 /*Container for the room name input field*/
 .inputField {
     box-sizing: border-box;
-    flex-grow: 0.7;
+    flex-grow: 1;
     display: flex;
     transform: scale(1);
+    height: 100%;
 }
 
 /*Input text for the room name*/
 .inputField__input {
+    box-sizing: border-box;
     flex-grow: 1;
     width: 100%;
     text-align: center;
-    height: 35px;
+    height: 100%;
     font-size: 1.1rem;
     font-family: cursive;
     border-radius: 4px;

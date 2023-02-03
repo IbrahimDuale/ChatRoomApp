@@ -91,7 +91,7 @@ const LoginController = () => {
         //creating entry for database that maps room_id -> members in the room.
         batch.set(doc(db, MEMBERS_COLLECTION, new_id), {});
         //creating welcome message
-        batch.set(doc(db, MESSAGES_COLLECTION, new_id, MESSAGES_COLLECTION, new_id), { member_id: admin_id, content: `Welcome to ${room_name}!`, timeStamp: serverTimestamp() })
+        batch.set(doc(db, MESSAGES_COLLECTION, new_id, MESSAGES_COLLECTION, new_id), { member_id: admin_id, name: "Admin", content: `Welcome to ${room_name}!`, timeStamp: serverTimestamp() })
 
         await batch.commit().then(() => {
             //on successful write, the room's id is saved.
