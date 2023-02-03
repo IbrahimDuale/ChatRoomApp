@@ -5,7 +5,7 @@ import { realtimeDb, auth, db, ROOM_NAMES_COLLECTION, MEMBERS_COLLECTION, MESSAG
 import { useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { collection, doc, getDoc, onSnapshot, serverTimestamp, setDoc, Timestamp } from "firebase/firestore";
-import { ref, onValue, onDisconnect, set, getDatabase, remove } from "firebase/database";
+import { ref, onValue, onDisconnect, set, } from "firebase/database";
 import { useRef } from "react";
 
 /**
@@ -25,14 +25,7 @@ const ChatRoomController = () => {
     /**
      * redirects the user to the home page without reloading.
      */
-    const leave = (member_id) => {
-        const myConnectionsRef = ref(getDatabase(), `users/${member_id}`);
-        console.log(myConnectionsRef);
-        remove(myConnectionsRef).catch((err) => {
-            if (err) {
-                console.error("could not establish onDisconnect event", err);
-            }
-        });
+    const leave = () => {
         navigate("/");
     }
 

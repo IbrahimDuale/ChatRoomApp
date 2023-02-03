@@ -8,6 +8,7 @@ import { useRef, useState } from "react";
 import { useEffect } from "react";
 import { BiArrowBack } from "react-icons/bi";
 import { AiOutlineMenu } from "react-icons/ai";
+import { getDatabase, ref, remove } from "firebase/database";
 
 const ChatRoom = ({ error_flags, leave, connecting, connected, room_name, username,
     user_id, messages, members, message, update_message, send_message, input_field_ref }) => {
@@ -19,11 +20,24 @@ const ChatRoom = ({ error_flags, leave, connecting, connected, room_name, userna
         messagesRef.current?.scrollIntoView({ behavior: "smooth", block: "end" });
         console.log(messagesRef.current.scrollIntoView);
     }, [messages])
+
+    useEffect(() => {
+        return () => {
+            const myConnectionsRef = ref(getDatabase(), `users/${user_id}`);
+            console.log(myConnectionsRef);
+            remove(myConnectionsRef).catch((err) => {
+                if (err) {
+                    console.error("could not establish onDisconnect event", err);
+                }
+            });
+        }
+    }, [user_id])
+
     return (
         <div className="chatRoom">
             <div className="chatRoom__header">
                 <div className="chatRoom__header__left">
-                    <div className="chatRoom__iconContainer" onClick={() => leave(user_id)}>
+                    <div className="chatRoom__iconContainer" onClick={() => leave()}>
                         <BiArrowBack className="chatRoom__icon" />
                     </div>
                     <h1 className="chatRoom__roomName">{room_name}</h1>
