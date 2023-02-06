@@ -58,7 +58,6 @@ const MessagesWrapper = ({ messages, user_id }) => {
         return `${date.format(time, 'ddd, MMM DD YYYY')}, ${formattedTime}`;
     }
 
-    console.log(convert(messages, user_id));
     return (
         <div className="messagesWrapper">
             <Messages messages={convert(messages, user_id)} />

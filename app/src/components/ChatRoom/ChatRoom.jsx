@@ -18,7 +18,6 @@ const ChatRoom = ({ error_flags, leave, connecting, connected, room_name, userna
     const [showMenu, setShowMenu] = useState(false);
     useEffect(() => {
         messagesRef.current?.scrollIntoView({ behavior: "smooth", block: "end" });
-        console.log(messagesRef.current.scrollIntoView);
     }, [messages])
 
     useEffect(() => {
