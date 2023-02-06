@@ -38,12 +38,12 @@ setPersistence(auth, inMemoryPersistence).then(() => {
 
 const db = getFirestore(app);
 const realtimeDb = getDatabase();
-const functions = getFunctions(getApp());
+// const functions = getFunctions(getApp());
 
-connectFirestoreEmulator(db, 'localhost', 8080);
-connectAuthEmulator(auth, "http://localhost:9099");
-connectDatabaseEmulator(realtimeDb, "localhost", 9000);
-connectFunctionsEmulator(functions, "localhost", 5001);
+// connectFirestoreEmulator(db, 'localhost', 8080);
+// connectAuthEmulator(auth, "http://localhost:9099");
+// connectDatabaseEmulator(realtimeDb, "localhost", 9000);
+// connectFunctionsEmulator(functions, "localhost", 5001);
 
 const admin_id = "-1";
 const MESSAGES_COLLECTION = "messages";
